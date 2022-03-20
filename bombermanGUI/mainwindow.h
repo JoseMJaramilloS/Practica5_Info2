@@ -3,8 +3,10 @@
 
 #include <QMainWindow>
 #include <QGraphicsScene>
-#include <QList>
+#include <QList> //Para uso de STL listas
 #include "paredsolida.h"
+#include "paredladrillo.h"
+#include <cstdlib> //Para generacion de numeros aleatorios
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,10 +23,11 @@ public:
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
-    paredSolida *wall;
-    paredSolida *wall2;
+    paredLadrillo *ladrillo;
     QList <paredSolida*>paredesSolidas;
-    QList <paredSolida*>::Iterator it;
+    QList <paredSolida*>::Iterator itSol;
+    QList <paredLadrillo*>paredesLadrillos;
+    QList <paredLadrillo*>::Iterator itLad;
 
 
 };

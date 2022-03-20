@@ -18,10 +18,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    paredladrillo.cpp \
     paredsolida.cpp
 
 HEADERS += \
     mainwindow.h \
+    paredladrillo.h \
     paredsolida.h
 
 FORMS += \
