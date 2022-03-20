@@ -57,20 +57,34 @@ bool MainWindow::evaluarColision()
 void MainWindow::keyPressEvent(QKeyEvent *evento)
 {
     if (evento->key()==Qt::Key_W) {//Mover arriba
-        bomberman0->moverArriba();
+        if(!evaluarColision())
+            bomberman0->moverArriba();
+        else
+            bomberman0->moverAbajo();
+
     }
 
     else if (evento->key()==Qt::Key_S) {//Mover abajo
-        bomberman0->moverAbajo();
+        if(!evaluarColision())
+            bomberman0->moverAbajo();
+        else
+            bomberman0->moverArriba();
     }
 
     else if (evento->key()==Qt::Key_A) {//Mover izquierda
-        bomberman0->moverIzquierda();
+        if(!evaluarColision())
+            bomberman0->moverIzquierda();
+        else
+            bomberman0->moverDerecha();
     }
 
     else if (evento->key()==Qt::Key_D) {//Mover derecha
-        bomberman0->moverDerecha();
+        if(!evaluarColision())
+            bomberman0->moverDerecha();
+        else
+            bomberman0->moverIzquierda();
     }
+
 
 }
 
