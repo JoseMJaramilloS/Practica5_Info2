@@ -4,9 +4,11 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QList> //Para uso de STL listas
+#include <cstdlib> //Para generacion de numeros aleatorios
+#include <QKeyEvent> //Para controlar por teclado
 #include "paredsolida.h"
 #include "paredladrillo.h"
-#include <cstdlib> //Para generacion de numeros aleatorios
+#include "bomberman.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,15 +21,17 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    bool evaluarColision(); //Metodo que evalua la colision entre objetos
 
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
-    paredLadrillo *ladrillo;
-    QList <paredSolida*>paredesSolidas;
+    QList <paredSolida*>paredesSolidas; //Lista de bloques solidos
     QList <paredSolida*>::Iterator itSol;
-    QList <paredLadrillo*>paredesLadrillos;
+    QList <paredLadrillo*>paredesLadrillos; //lista de bloques ladrillo
     QList <paredLadrillo*>::Iterator itLad;
+    bomberman *bomberman0; //personaje principal
+    void keyPressEvent(QKeyEvent *evento); //Metodo de entrada por teclado
 
 
 };

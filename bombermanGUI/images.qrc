@@ -2,5 +2,6 @@
     <qresource prefix="/images">
         <file>ladrillo.png</file>
         <file>solid.png</file>
+        <file>walking_right1.png</file>
     </qresource>
 </RCC>
