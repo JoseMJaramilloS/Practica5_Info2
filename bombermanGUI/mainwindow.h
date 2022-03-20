@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QGraphicsScene>
+#include <QList>
 #include "paredsolida.h"
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +23,8 @@ private:
     QGraphicsScene *scene;
     paredSolida *wall;
     paredSolida *wall2;
+    QList <paredSolida*>paredesSolidas;
+    QList <paredSolida*>::Iterator it;
 
 
 };
