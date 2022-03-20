@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>ladrillo.png</file>
+        <file>solid.png</file>
+    </qresource>
+</RCC>
