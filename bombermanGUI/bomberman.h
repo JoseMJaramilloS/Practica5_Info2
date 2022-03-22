@@ -10,7 +10,7 @@ class bomberman : public QGraphicsItem
     int posx;
     int posy;
     int lado;
-    int vel;
+    int vel=6;
 public:
     //Constructores
     bomberman();
@@ -24,6 +24,11 @@ public:
     void moverAbajo();
     void moverIzquierda();
     void moverDerecha();
+
+    QRectF recty;
+    QRectF rectx;
+    int getPosx() const;
+    int getPosy() const;
 };
 
 #endif // BOMBERMAN_H

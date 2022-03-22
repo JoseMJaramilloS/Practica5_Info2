@@ -1,11 +1,22 @@
 #include "bomberman.h"
 
+int bomberman::getPosx() const
+{
+    return posx;
+}
+
+int bomberman::getPosy() const
+{
+    return posy;
+}
+
 bomberman::bomberman()
 {
     this->posx=48;
     this->posy=48;
     this->lado=48;
-    this->vel=6;
+    this->vel=8;
+    rectx= QRectF(lado/2,0,lado/2+1,lado); //rectangulo de prediccion
     setPos(posx,posy);
 }
 
@@ -27,6 +38,8 @@ void bomberman::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 {
     QPixmap pxMap(":/images/walking_right1.png");
     painter->drawPixmap(boundingRect(),pxMap,pxMap.rect());
+    painter->setPen(Qt::red);//prediccion
+    painter->drawRect(rectx);
 }
 
 void bomberman::moverArriba()

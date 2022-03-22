@@ -12,9 +12,10 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QLCDNumber>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,8 +25,9 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGraphicsView *graphicsView;
+    QLCDNumber *lcdNumber;
+    QLabel *label;
     QMenuBar *menubar;
-    QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -45,14 +47,31 @@ public:
         QBrush brush(QColor(2, 148, 0, 255));
         brush.setStyle(Qt::SolidPattern);
         graphicsView->setBackgroundBrush(brush);
+        lcdNumber = new QLCDNumber(centralwidget);
+        lcdNumber->setObjectName(QString::fromUtf8("lcdNumber"));
+        lcdNumber->setGeometry(QRect(140, 40, 64, 23));
+        QFont font;
+        font.setBold(true);
+        font.setWeight(75);
+        lcdNumber->setFont(font);
+        lcdNumber->setAutoFillBackground(false);
+        lcdNumber->setStyleSheet(QString::fromUtf8("color: red; "));
+        lcdNumber->setFrameShape(QFrame::NoFrame);
+        lcdNumber->setFrameShadow(QFrame::Raised);
+        lcdNumber->setMidLineWidth(0);
+        label = new QLabel(centralwidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(90, 40, 47, 23));
+        QFont font1;
+        font1.setPointSize(12);
+        font1.setBold(true);
+        font1.setWeight(75);
+        label->setFont(font1);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 1518, 24));
         MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
-        MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
 
@@ -62,6 +81,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
+        label->setText(QApplication::translate("MainWindow", "TIME", nullptr));
     } // retranslateUi
 
 };
